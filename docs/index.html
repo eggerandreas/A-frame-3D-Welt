@@ -1,12 +1,35 @@
 <html>
     <head>
         <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+        <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
     </head>
     <body>
         <a-scene>
             <!-- eigene Inhalte -->
-            <a-box position="0 1 -5">
-            </a-box>
+
+        <!--Camera-->
+        <a-camera>
+            <a-cursor></a-cursor>
+        </a-camera>
+
+        <!--light-->3
+        <a-entity light="type: ambient; intensity: 0.5" position="5 0 -5"></a-entity>
+
+        <!--Sound-->
+        <a-assets>
+            <audio src="sound.mp3" autoplay></audio>
+        </a-assets>
+
+        <!--Environment-->
+        <a-entity environment="preset: egypt; dressingAmount: 25"></a-entity>
+
+        <!--Jet--> 
+        <a-gltf-model src="components/jet/jet.gltf" position="0 5 -100" rotation="-3 -0 0 " scale="2 2 2"
+        animation__position="property: object3D.position.z; to: 10w; dir: alternate; dur: 2000;"
+        animation__mouseenter="property: scale; to: 4 4 4; dur: 300; startEvents: mouseenter"
+        animation__mouseleave="property: scale; to: 2 2 2; dur: 300; startEvents: mouseleave">
+        </a-gltf-model>
+
         </a-scene>
     </body>
 </html>
