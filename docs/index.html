@@ -2,6 +2,8 @@
     <head>
         <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
         <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
+
+
     </head>
     <body>
         <a-scene>
@@ -13,22 +15,163 @@
         </a-camera>
 
         <!--light-->3
-        <a-entity light="type: ambient; intensity: 0.5" position="5 0 -5"></a-entity>
+        <a-entity light="type: ambient; intensity: 0.8" position="5 0 -5"></a-entity>
 
         <!--Sound-->
         <a-assets>
-            <audio src="sound.mp3" autoplay></audio>
+            <audio id="sound" src="assets\sound.mp3" preload="auto" autoplay loop="true"></audio>
+            <img id="sky" src="components\sky\sky.jpg">
+            <img id="gras" src="components\gras\gras.jpg">
+            <img id="brick" src="components\brick\brick.jpg">
+            <img id="sea" src="components\sea\sea.jpg">
+            <img id="world" src="components\world\world.jpg">
         </a-assets>
 
+
         <!--Environment-->
-        <a-entity environment="preset: egypt; dressingAmount: 25"></a-entity>
+        <a-entity environment="preset: goland; dressingAmount: 25"></a-entity>
+
+        <!--Sky-->
+        <a-sky src="#sky"></a-sky>
+
+
+        <!--Floor-->
+        <a-plane  src="#gras" position="0 0 10" rotation="-90 0 0" width="300" height="300"  repeat="10 10"></a-plane>
+
+        <!--Street-->
+        <a-plane position="0 0.01 10" rotation="-90 0 0" width="15" height="300" color="#383838"></a-plane>
+        <a-plane position="0 0.02 10" rotation="-90 0 0" width="1" height="300" color="#ffffff"></a-plane>
+
+
+        <!--House-->
+        <a-plane position="-23 0.01 10" rotation="-90 0 0" width="20" height="60" color="#383838"></a-plane>
+        <a-box src="#brick" position="-23 0.01 10" depth="15" width="15" height="55" rotation="-90 0 0" repeat="10 10"></a-box>
+        <a-box position="-23 10 10" depth="5" width="15" height="55" rotation="-90 0 0" color="#0068bd"></a-box>
+        <a-box position="-23 13 10" depth="2" width="20" height="58" rotation="-90 0 0" color="#333333"></a-box>
+
+
+        <!--Tower-->
+        <a-plane position="-23 0.01 -40" rotation="-90 0 0" width="20" height="20" color="#383838"></a-plane>
+        <a-box src="#brick" position="-23 0.01 -40" depth="5" width="15" height="15" rotation="-90 0 0" repeat="10 10"></a-box>
+        <a-cylinder color="#333333" position="-23 3 -40" height="5" radius="7" repeat="15 15"></a-cylinder>
+        <a-cylinder color="#333333" position="-23 7 -40" height="40" radius="2"></a-cylinder>
+        <a-sphere  src="#world" position="-23 30 -40" radius="10"
+        animation=" property: rotation; from: 0 0 0; to: 0 360 0; easing: linear; dur: 50000; loop: true;" ></a-sphere>
+
+
+        <!--Sea-->
+        <a-plane src="#sea" position="108 0.01 10" rotation="-90 0 0" width="200" height="300" repeat="1 1"></a-plane>
+        <a-box color="black"  position="8 0.2 10" depth="1" width="1" height="300" rotation="-90 0 0"></a-box>
+        <a-box color="white"  position="8 0.8 10" depth="0.1" width="0.1" height="300" rotation="-90 0 0"></a-box>
+
 
         <!--Jet--> 
-        <a-gltf-model src="components/jet/jet.gltf" position="0 5 -100" rotation="-3 -0 0 " scale="2 2 2"
-        animation__position="property: object3D.position.z; to: 10w; dir: alternate; dur: 2000;"
+        <a-gltf-model src="components/jet/jet.gltf" position="0 5 -100" rotation="-3 0 0 " scale="2 2 2"
+        animation__position="property: object3D.position.z; to: 20; dir: alternate; dur: 2000;"
         animation__mouseenter="property: scale; to: 4 4 4; dur: 300; startEvents: mouseenter"
         animation__mouseleave="property: scale; to: 2 2 2; dur: 300; startEvents: mouseleave">
         </a-gltf-model>
+        
+        <!--Jet--> 
+        <a-gltf-model src="components/jet/jet.gltf" position="-23 1 105" rotation="-3 40 0 " scale="2 2 2"></a-gltf-model>
+
+        <!--Jet--> 
+        <a-gltf-model src="components/jet/jet.gltf" position="-23 1 120" rotation="-3 40 0 " scale="2 2 2"></a-gltf-model>
+
+         <!--Jet--> 
+         <a-gltf-model src="components/jet/jet.gltf" position="-23 1 135" rotation="-3 40 0 " scale="2 2 2"></a-gltf-model>
+
+         <!--Jet--> 
+         <a-gltf-model src="components/jet/jet.gltf" position="-23 1 -70" rotation="-3 40 0 " scale="2 2 2"></a-gltf-model>
+        
+         <!--Jet--> 
+         <a-gltf-model src="components/jet/jet.gltf" position="-23 1 -90" rotation="-3 40 0 " scale="2 2 2"></a-gltf-model>
+
+         <!--Jet--> 
+         <a-gltf-model src="components/jet/jet.gltf" position="-23 1 -115" rotation="-3 40 0 " scale="2 2 2"></a-gltf-model>
+
+
+        <!--Garage-->
+        <a-entity position="-20 0 70" rotation="0 90 0" >
+            <a-entity
+                light="                        
+                    type: point;
+                    distance: 4;                        
+                    intensitiy: 0.5;"                        
+                rotation="-90 0 0"
+                position="0 3.9 1"></a-entity>
+
+            <a-entity
+                light="                        
+                    type: point;
+                    distance: 4;                        
+                    intensitiy: 0.5;"                        
+                rotation="-90 0 0"
+                position="20 4 1"></a-entity>
+            
+            <a-entity
+                light="                        
+                    type: point;
+                    distance: 4;                        
+                    intensitiy: 0.5;"                        
+                rotation="-90 0 0"
+                position="-20 4 1"></a-entity>
+
+             <a-box
+                width="0.2"
+                height="0.2"
+                depth="0.2"
+                position="20 3.9 1"
+                color="yellow"></a-box>
+
+            <a-box
+                width="0.2"
+                height="0.2"
+                depth="0.2"
+                position="-20 3.9 1"
+                color="yellow"></a-box>
+
+            <a-box
+                width="0.2"
+                height="0.2"
+                depth="0.2"
+                position="0 3.9 1"
+                color="yellow"></a-box>
+            <a-box
+                depth="0.2"
+                width="50"
+                height="8"
+                color="#141414"
+            ></a-box>
+            <a-box
+                position="25 0 2.5"
+                rotation="0 90 0"
+                depth="0.2"
+                width="5"
+                height="8"
+                color="#333333"
+            ></a-box>
+            <a-box
+                position="-25 0 2.5"
+                rotation="0 90 0"
+                depth="0.2"
+                width="5"
+                height="8"
+                color="#333333"
+            ></a-box>
+            <a-box  
+                position="0 4 2.5"
+                rotation="-90 0 0"
+                depth="0.2"
+                width="51"
+                height="5.4"
+                color="black"
+            ></a-box>
+        </a-entity>
+     
+
+
+
 
         </a-scene>
     </body>
